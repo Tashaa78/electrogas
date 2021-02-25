@@ -1,0 +1,46 @@
+Document {
+  SysRef: string | number;
+  Name: string;
+  Description: string;
+  Type?: string;
+  ExpiryDate?: string;
+  Events?: DocumentEvent[];
+}
+
+DocumentEvent {
+  SysRef: number | string;
+  DocNo: number | string;
+  Name: string;
+  Notes: string;
+  Date: string;
+  Repeat: REPEAT_ATOMICITY;
+  RepeatOptions: RepeatOptions;
+  ReminderSettings: ReminderSettings;
+}
+
+RepeatOptions {
+  Event_SysRef?: number | string;
+  Frequency: number;
+  DaysOfWeek: string[];
+  DaysOfMonth: string[];
+  MonthlyInterval: string;
+  MonthsOfYear: string[];
+  YearlyInterval: string;
+}
+ReminderSettings {
+  Event_SysRef?: number | string;
+  Frequency: number;
+  Atomicity: REPEAT_ATOMICITY;
+  Repeat: string;
+  RepeatSettings: RepeatSettings;
+  Recipients: string[];
+}
+
+RepeatSettings {
+  Event_SysRef?: number | string;
+  Event_Reminder_SysRef?: number | string;
+  Start: string;
+  Frequency: string;
+  Atomicity: REPEAT_ATOMICITY;
+  DaysOfWeek: string[];
+}
